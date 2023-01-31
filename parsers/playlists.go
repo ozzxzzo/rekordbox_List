@@ -1,6 +1,11 @@
 package parsers
 
+import (
+	"encoding/xml"
+)
+
 type DJPlaylists struct {
+	XMLName    xml.Name     `xml:"DJ_PLAYLISTS"`
 	Version    string       `xml:"Version,attr"`
 	Product    []Product    `xml:"PLAYLISTS>PRODUCT"`
 	Collection []Collection `xml:"COLLECTION"`
