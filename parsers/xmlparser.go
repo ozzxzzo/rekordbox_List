@@ -3,8 +3,6 @@ package parsers
 import (
 	"encoding/xml"
 	"os"
-
-	"github.com/ozzxzzo/rekordbox_List/parsers"
 )
 
 // ParseXML function to parse an XML file
@@ -25,7 +23,7 @@ func ParseXML(filePath string) (*DJPlaylists, error) {
 
 // Parse the Collection structure
 func ParseCollection(collection []Collection) map[string]CollectionTrack {
-	trackMap := make(map[string]parsers.CollectionTrack)
+	trackMap := make(map[string]CollectionTrack)
 
 	for _, playlist := range collection {
 		for _, track := range playlist.CollectionTrack {
