@@ -24,7 +24,7 @@ func ParseXML(filePath string) (*DJPlaylists, error) {
 }
 
 // Parse the Collection structure
-func ParseCollection(collection []parsers.Collection) map[string]parsers.CollectionTrack {
+func ParseCollection(collection []Collection) map[string]CollectionTrack {
 	trackMap := make(map[string]parsers.CollectionTrack)
 
 	for _, playlist := range collection {
