@@ -27,6 +27,7 @@ type Collection struct {
 
 type CollectionTrack struct {
 	XMLName             xml.Name `xml:"COLLECTION>TRACK“`
+	TrackID             string   `xml:"TrackID,attr"`
 	Name                string   `xml:"Name,attr"`
 	Artist              string   `xml:"Artist,attr"`
 	Composer            string   `xml:"Composer,attr"`
