@@ -7,57 +7,62 @@ import (
 type DJPlaylists struct {
 	XMLName    xml.Name     `xml:"DJ_PLAYLISTS"`
 	Version    string       `xml:"Version,attr"`
-	Product    []Product    `xml:"PLAYLISTS>PRODUCT"`
+	Product    []Product    `xml:"PRODUCT"`
 	Collection []Collection `xml:"COLLECTION"`
-	Node       []Node       `xml:"PLAYLISTS>NODE"`
+	Node       []Node       `xml:"NODE"`
 }
 
 type Product struct {
-	Name    string `xml:"Name,attr"`
-	Version string `xml:"Version,attr"`
-	Company string `xml:"Company,attr"`
+	XMLName xml.Name `xml:"PRODUCT"`
+	Name    string   `xml:"Name,attr"`
+	Version string   `xml:"Version,attr"`
+	Company string   `xml:"Company,attr"`
 }
 
 type Collection struct {
-	CollectionTrack []CollectionTrack `xml:"COLLECTION>TRACK"`
+	XMLName         xml.Name          `xml:"COLLECTION"`
+	Entries         string            `xml:"Entries,attr"`
+	CollectionTrack []CollectionTrack `xml:"TRACK"`
 }
 
 type CollectionTrack struct {
-	Name                string `xml:"Name"`
-	Artist              string `xml:"Artist"`
-	Composer            string `xml:"Composer"`
-	Album               string `xml:"Album"`
-	Genre               string `xml:"Genre"`
-	Kind                string `xml:"Kind"`
-	Size                int64  `xml:"Size"`
-	TotalTime           int64  `xml:"TotalTime"`
-	TrackNumber         int    `xml:"TrackNumber"`
-	Year                int    `xml:"Year"`
-	DateModified        string `xml:"DateModified"`
-	DateAdded           string `xml:"DateAdded"`
-	BitRate             int    `xml:"BitRate"`
-	SampleRate          int    `xml:"SampleRate"`
-	PlayCount           int    `xml:"PlayCount"`
-	PlayDate            int64  `xml:"PlayDate"`
-	PlayDateUTC         string `xml:"PlayDateUTC"`
-	SkipCount           int    `xml:"SkipCount"`
-	SkipDate            string `xml:"SkipDate"`
-	Rating              int    `xml:"Rating"`
-	AlbumRating         int    `xml:"AlbumRating"`
-	AlbumRatingComputed int    `xml:"AlbumRatingComputed"`
-	PersistentID        string `xml:"PersistentID"`
-	TrackType           string `xml:"TrackType"`
-	Location            string `xml:"Location"`
-	FileFolderCount     int    `xml:"FileFolderCount"`
-	LibraryFolderCount  int    `xml:"LibraryFolderCount"`
+	XMLName             xml.Name `xml:"COLLECTION>TRACK“`
+	Name                string   `xml:"Name,attr"`
+	Artist              string   `xml:"Artist,attr"`
+	Composer            string   `xml:"Composer,attr"`
+	Album               string   `xml:"Album,attr"`
+	Genre               string   `xml:"Genre,attr"`
+	Kind                string   `xml:"Kind,attr"`
+	Size                int64    `xml:"Size,attr"`
+	TotalTime           int64    `xml:"TotalTime,attr"`
+	TrackNumber         int      `xml:"TrackNumber,attr"`
+	Year                int      `xml:"Year,attr"`
+	DateModified        string   `xml:"DateModified,attr"`
+	DateAdded           string   `xml:"DateAdded,attr"`
+	BitRate             int      `xml:"BitRate,attr"`
+	SampleRate          int      `xml:"SampleRate,attr"`
+	PlayCount           int      `xml:"PlayCount,attr"`
+	PlayDate            int64    `xml:"PlayDate,attr"`
+	PlayDateUTC         string   `xml:"PlayDateUTC,attr"`
+	SkipCount           int      `xml:"SkipCount,attr"`
+	SkipDate            string   `xml:"SkipDate,attr"`
+	Rating              int      `xml:"Rating,attr"`
+	AlbumRating         int      `xml:"AlbumRating,attr"`
+	AlbumRatingComputed int      `xml:"AlbumRatingComputed,attr"`
+	PersistentID        string   `xml:"PersistentID,attr"`
+	TrackType           string   `xml:"TrackType,attr"`
+	Location            string   `xml:"Location,attr"`
+	FileFolderCount     int      `xml:"FileFolderCount,attr"`
+	LibraryFolderCount  int      `xml:"LibraryFolderCount,attr"`
 }
 
 type Node struct {
-	Name    string  `xml:"Name,attr"`
-	Type    string  `xml:"Type,attr"`
-	KeyType string  `xml:"KeyType,attr"`
-	Entries string  `xml:"Entries,attr"`
-	Tracks  []Track `xml:"TRACK"`
+	XMLName xml.Name `xml:"NODE"`
+	Name    string   `xml:"Name,attr"`
+	Type    string   `xml:"Type,attr"`
+	KeyType string   `xml:"KeyType,attr"`
+	Entries string   `xml:"Entries,attr"`
+	Tracks  []Track  `xml:"TRACK"`
 }
 
 type Track struct {
