@@ -10,6 +10,7 @@ type DJPlaylists struct {
 	Product    []Product    `xml:"PRODUCT"`
 	Collection []Collection `xml:"COLLECTION"`
 	Node       []Node       `xml:"NODE"`
+	Playlists  []Playlists  `xml:"PLAYLISTS"`
 }
 
 type Product struct {
@@ -68,4 +69,9 @@ type Node struct {
 
 type Track struct {
 	Key string `xml:"Key,attr"`
+}
+
+type Playlists struct {
+	XMLName xml.Name          `xml:"PLAYLISTS"`
+	Node    []CollectionTrack `xml:"NODE"`
 }
